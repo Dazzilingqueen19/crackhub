@@ -1,0 +1,433 @@
+.dashboard-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #071033 0%, #0b2540 40%, #071033 100%);
+  padding: 2rem 0;
+  color: #fff;
+  /* keep background fixed so page content scrolls over it */
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  /* offset for fixed header */
+  padding-top: 6rem;
+  width: 100%;
+  background-size: cover;
+}
+
+/* animated background layer */
+.dashboard-animated-bg {
+  /* Fix the animated background to the viewport so it doesn't move during scroll */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(120deg, rgba(79,172,254,0.06), rgba(99,102,241,0.04));
+  background-size: 400% 400%;
+  filter: blur(24px);
+  animation: dashboardGradient 18s linear infinite;
+  will-change: transform, background-position;
+}
+
+/* some floating translucent blobs */
+.dashboard-animated-bg::before,
+.dashboard-animated-bg::after {
+  content: "";
+  position: fixed; /* keep blobs fixed to viewport */
+  border-radius: 50%;
+  filter: blur(36px);
+  opacity: 0.35;
+}
+.dashboard-animated-bg::before {
+  width: 420px;
+  height: 420px;
+  left: -8%;
+  top: 10%;
+  background: radial-gradient(circle at 30% 30%, rgba(99,102,241,0.18), rgba(59,130,246,0.06));
+  animation: floatSlow 8s ease-in-out infinite;
+}
+.dashboard-animated-bg::after {
+  width: 520px;
+  height: 520px;
+  right: -10%;
+  bottom: 5%;
+  background: radial-gradient(circle at 70% 70%, rgba(234,88,12,0.10), rgba(234,179,8,0.04));
+  animation: floatSlow 10s ease-in-out infinite reverse;
+}
+
+@keyframes dashboardGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes floatSlow {
+  0% { transform: translateY(0px) translateX(0px); }
+  50% { transform: translateY(-18px) translateX(8px); }
+  100% { transform: translateY(0px) translateX(0px); }
+}
+
+/* content overlay to ensure main content sits above the animated bg */
+.content-overlay { position: relative; z-index: 2; }
+
+.stats-section {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.stat-card h3 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+  background: linear-gradient(45deg, #00f2fe, #4facfe);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stat-card p {
+  margin: 0.5rem 0 0;
+  color: #a0aec0;
+  font-size: 1.1rem;
+}
+
+.company-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 1rem;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.company-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.company-card .card-title {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.company-card .card-text {
+  color: #a0aec0;
+  margin-bottom: 1.5rem;
+}
+
+.practice-btn {
+  width: 100%;
+  background: linear-gradient(45deg, #00f2fe, #4facfe);
+  border: none;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.practice-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+}
+
+.tips-section {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 3rem 0;
+  border-radius: 15px;
+}
+
+.tips-section h3 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #fff;
+  font-size: 2rem;
+}
+
+/* Make question/tip cards always show readable text regardless of light/dark card backgrounds.
+   Use white card + dark text for the company questions list (matches screenshot where cards are light).
+   High specificity and !important applied to override Bootstrap or other rules. */
+.tips-section .tip-card {
+  background: #ffffff !important;
+  border: 1px solid rgba(2,6,23,0.04) !important;
+  box-shadow: 0 4px 10px rgba(2,6,23,0.04) !important;
+  backdrop-filter: none !important;
+  border-radius: 12px;
+  padding: 1.5rem;
+  height: 100%;
+  transition: all 0.18s ease;
+}
+
+/* Force visible, dark text inside tip cards */
+.tips-section .tip-card h4,
+.tips-section .tip-card strong,
+.tips-section .tip-card p,
+.tips-section .tip-card .card-text {
+  color: #0b1220 !important; /* dark navy/near-black for readability */
+}
+
+/* Keep badge colors unchanged but ensure contrast */
+.tips-section .tip-card .badge {
+  box-shadow: 0 6px 18px rgba(59,130,246,0.06);
+}
+
+/* Strong override: ensure every descendant inside tip-card uses dark color and no shadow
+   This defeats any global white/text-shadow rules that make the text invisible on white cards. */
+.tips-section .tip-card,
+.tips-section .tip-card * {
+  color: #0b1220 !important;
+  text-shadow: none !important;
+}
+
+.tip-card h4 {
+  color: #4facfe;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.tip-card p {
+  color: #e6eef8 !important;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.stat-card:hover {
+  animation: float 2s ease-in-out infinite;
+}
+
+/* Badge Styles */
+.badge {
+  padding: 0.5em 1em;
+  font-size: 0.85rem;
+  border-radius: 20px;
+}
+
+.badge-success {
+  background: linear-gradient(45deg, #00b09b, #96c93d);
+}
+
+.badge-warning {
+  background: linear-gradient(45deg, #f7971e, #ffd200);
+}
+
+.badge-danger {
+  background: linear-gradient(45deg, #ff416c, #ff4b2b);
+}
+
+/* Loading Animation */
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #4facfe;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .stat-card h3 {
+    font-size: 2rem;
+  }
+  
+  .stat-card p {
+    font-size: 1rem;
+  }
+  
+  .tips-section {
+    padding: 2rem 0;
+  }
+  
+  .tip-card {
+    margin-bottom: 1rem;
+  }
+}
+
+.dashboard-hero {
+  padding: 2rem 1rem 1rem 1rem;
+  position: relative;
+  z-index: 2;
+}
+.hero-desc { color: #cbd5e1; }
+
+/* Navigation Menu */
+.nav-menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.nav-item {
+  text-decoration: none;
+}
+
+.nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  backdrop-filter: blur(10px);
+}
+
+.nav-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.nav-btn i {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.company-card { 
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  border-left: 4px solid rgba(59,130,246,0.5);
+}
+
+/* Make card text highly readable with white color and subtle glow */
+.company-card,
+.tip-card,
+.stat-card {
+  color: #ffffff;
+}
+
+.company-card .card-title,
+.tip-card h4,
+.stat-card h3,
+.card-title {
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(99,102,241,0.18), 0 6px 30px rgba(3,7,18,0.6);
+}
+
+.company-card .card-text,
+.tip-card p,
+.stat-card p {
+  color: rgba(255,255,255,0.95);
+  text-shadow: 0 1px 6px rgba(2,6,23,0.35);
+}
+
+/* Override Bootstrap muted text inside company cards to ensure readability */
+.company-card .text-muted,
+.company-card small,
+.company-card .lead {
+  color: rgba(255,255,255,0.88) !important;
+}
+
+/* ensure badges and buttons remain visible */
+.badge {
+  box-shadow: 0 4px 18px rgba(59,130,246,0.12);
+}
+.practice-btn {
+  color: #ffffff;
+}
+
+.practice-btn {
+  width: 100%;
+  background: linear-gradient(90deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
+  color: #fff;
+  border: none;
+  padding: 0.7rem 0.75rem;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.practice-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(59,130,246,0.15); }
+
+/* Preview cloud popup styles (appended) */
+.preview-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(6,8,15,0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+.preview-cloud {
+  position: relative;
+  width: 480px;
+  max-width: 92%;
+  background: linear-gradient(180deg, #ffffff, #f7fbff);
+  border-radius: 36px;
+  padding: 1.25rem 1.5rem;
+  box-shadow: 0 18px 40px rgba(3,7,18,0.18), inset 0 1px 0 rgba(255,255,255,0.6);
+  transform: scale(0.85);
+  animation: popIn 300ms cubic-bezier(.2,.9,.3,1) forwards;
+  text-align: center;
+}
+.preview-close {
+  position: absolute;
+  right: 10px;
+  top: 8px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+.preview-sparkles { position: absolute; left: 14px; top: -14px; }
+.preview-sparkles .sp{ font-size: 20px; opacity: 0; transform: translateY(10px) scale(0.6); display:inline-block; }
+.preview-sparkles .s1{ animation: sparkle 1000ms ease 120ms forwards; }
+.preview-sparkles .s2{ animation: sparkle 1000ms ease 240ms forwards; }
+.preview-sparkles .s3{ animation: sparkle 1000ms ease 360ms forwards; }
+
+.preview-content h5{ margin:0; font-weight:700; color:#06202a; }
+.typewriter{ margin-top:0.5rem; font-family: 'Inter', sans-serif; color:#0b1220; font-size:1.05rem; }
+.cursor{ display:inline-block; margin-left:4px; opacity:1; animation: blink 900ms steps(1,end) infinite; color:#0b1220 }
+
+@keyframes popIn{ to { transform: scale(1); } }
+@keyframes blink{ 50%{ opacity:0 } }
+@keyframes sparkle{ to { opacity:1; transform: translateY(0px) scale(1); } }
+
+/* cloud edges to feel "cloud-like" */
+.preview-cloud::before,
+.preview-cloud::after{
+  content:'';
+  position:absolute;
+  background: linear-gradient(180deg,#fff,#f0f6ff);
+  border-radius:50%;
+  width:80px;height:80px; top:-36px;
+  box-shadow: 0 8px 20px rgba(3,7,18,0.06);
+}
+.preview-cloud::before{ left:30px; }
+.preview-cloud::after{ right:30px; width:100px; height:100px; }

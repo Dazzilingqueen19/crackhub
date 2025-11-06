@@ -1,0 +1,198 @@
+/* Interview Experience Page Styles */
+
+/* Text Colors */
+.company-title,
+.company-name {
+    color: #000000 !important;
+    font-weight: 700 !important;
+    font-size: 1.5rem !important;
+}
+
+.role-title,
+.position-title {
+    color: #000000 !important;
+    font-weight: 600 !important;
+    font-size: 1.25rem !important;
+}
+
+.author-info,
+.post-meta {
+    color: #000000 !important;
+    font-weight: 500 !important;
+}
+
+.experience-date,
+.experience-meta,
+.experience-content,
+.author-name,
+.round-title,
+.description-text {
+    color: #000000 !important;
+}
+
+.meta-text,
+.secondary-text {
+    color: #2d3748 !important;
+}
+
+.nav-link-btn {
+    color: #1a202c !important;
+}
+
+/* Dashboard Navigation */
+.dashboard-nav {
+    background: #ffffff !important;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    color: #1a202c !important;
+}
+
+.nav-link-btn {
+    transition: all 0.3s ease !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+.nav-link-btn:hover::after {
+    opacity: 1;
+    transform: rotate(45deg) translate(50%, 50%);
+}
+
+/* Experience Card */
+.experience-card {
+    border: none !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08) !important;
+    transition: all 0.3s ease !important;
+    border-radius: 12px !important;
+    background-color: #ffffff !important;
+    color: #1a202c !important;
+}
+
+.experience-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Round Card */
+.round-card {
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 8px;
+    border-left: 4px solid #007bff;
+    color: #1a202c;
+}
+
+/* Sparkle Button */
+.sparkle-btn {
+    background: linear-gradient(45deg, #007bff, #00bcd4) !important;
+    border: none !important;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.sparkle-btn::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(
+        45deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        transparent 100%
+    );
+    transform: rotate(45deg);
+    animation: sparkle 2s infinite;
+}
+
+@keyframes sparkle {
+    0% {
+        transform: rotate(45deg) translate(-50%, -50%);
+    }
+    100% {
+        transform: rotate(45deg) translate(50%, 50%);
+    }
+}
+
+.sparkle-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+}
+
+/* Interaction Buttons */
+.interaction-btn {
+    border-radius: 20px !important;
+    padding: 0.4rem 1rem !important;
+    transition: all 0.3s ease !important;
+}
+
+.interaction-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+}
+
+/* Custom Select */
+.custom-select {
+    border-radius: 8px !important;
+    border: 1px solid #dee2e6 !important;
+    padding: 0.5rem !important;
+    transition: all 0.3s ease !important;
+    background-color: #ffffff !important;
+    color: #1a202c !important;
+}
+
+.custom-select:focus {
+    border-color: #007bff !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.15) !important;
+}
+
+/* Back Button */
+.back-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease !important;
+}
+
+.back-btn:hover {
+    transform: translateX(-5px);
+}
+
+/* Badges */
+.badge {
+    padding: 0.5em 1em !important;
+    font-weight: 500 !important;
+}
+
+/* Author Image */
+img.rounded-circle {
+    border: 2px solid #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+img.rounded-circle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}

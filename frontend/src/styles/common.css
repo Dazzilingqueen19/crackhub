@@ -1,0 +1,136 @@
+/* Common styles for all pages */
+.page-container {
+    min-height: 100vh;
+    padding: 2rem 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 40%, #f8fafc 100%);
+    color: #1a202c;
+    background-attachment: fixed;
+}
+
+/* Navigation */
+.nav-container {
+    margin-bottom: 2rem;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: #1a202c;
+    text-align: center;
+}
+
+/* Cards */
+.feature-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 15px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    color: #1a202c;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Buttons */
+.action-btn {
+    background: linear-gradient(45deg, #007bff, #00bcd4);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+}
+
+/* Sparkle effect */
+.sparkle-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.sparkle-btn::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(
+        45deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        transparent 100%
+    );
+    transform: rotate(45deg);
+    animation: sparkle 2s infinite;
+}
+
+@keyframes sparkle {
+    0% {
+        transform: rotate(45deg) translate(-50%, -50%);
+    }
+    100% {
+        transform: rotate(45deg) translate(50%, 50%);
+    }
+}
+
+/* Loading states */
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(255, 255, 255, 0.1);
+    border-top: 5px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Form elements */
+.custom-input {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    color: #1a202c;
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+}
+
+.custom-input:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Icons */
+.feature-icon {
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+    color: #007bff;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .page-container {
+        padding: 1rem;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+    }
+    
+    .feature-card {
+        margin-bottom: 1rem;
+    }
+}

@@ -1,0 +1,143 @@
+/* Code Editor page styles */
+.code-editor-container {
+    min-height: 100vh;
+    background: var(--bg-dark);
+    color: var(--text-light);
+}
+
+.editor-header {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.editor-wrapper {
+    display: flex;
+    height: calc(100vh - 60px);
+}
+
+.file-explorer {
+    width: 250px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+    overflow-y: auto;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    color: var(--text-light);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.file-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.file-item i {
+    margin-right: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.editor-main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.monaco-editor {
+    flex-grow: 1;
+    background: var(--bg-dark);
+}
+
+.editor-statusbar {
+    height: 25px;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.editor-controls {
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.editor-btn {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.editor-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.editor-btn i {
+    margin-right: 0.5rem;
+}
+
+.output-panel {
+    height: 200px;
+    background: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    font-family: 'Fira Code', monospace;
+    overflow-y: auto;
+}
+
+.terminal-text {
+    color: #2d3748;
+    margin: 0;
+    padding: 0.2rem 0;
+    font-weight: 500;
+}
+
+.success-text {
+    color: #2ecc71;
+    font-weight: 600;
+}
+
+.error-text {
+    color: #e74c3c;
+    font-weight: 600;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Monaco Editor customizations */
+.monaco-editor .margin {
+    background: var(--bg-dark) !important;
+}
+
+.monaco-editor .minimap {
+    opacity: 0.6;
+}

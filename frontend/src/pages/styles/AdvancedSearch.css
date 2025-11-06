@@ -1,0 +1,158 @@
+/* Advanced Search Page Styles */
+
+/* Dashboard Navigation */
+.dashboard-nav {
+    background: linear-gradient(135deg, #1a1c2d 0%, #2d2b42 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Ensure nav text is visible on dark nav backgrounds */
+.dashboard-nav, .dashboard-nav a, .dashboard-nav .nav-link-btn {
+    color: var(--text-light) !important;
+}
+
+.nav-link-btn {
+    transition: all 0.3s ease !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+.nav-link-btn:hover::after {
+    opacity: 1;
+    transform: rotate(45deg) translate(50%, 50%);
+}
+
+/* Filter Card */
+.filter-card {
+    border: none !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+    border-radius: 12px !important;
+}
+
+/* Search Card */
+.search-card {
+    border: none !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08) !important;
+    border-radius: 12px !important;
+}
+
+/* Search Input */
+.search-input {
+    border-radius: 8px 0 0 8px !important;
+    border: 1px solid #dee2e6 !important;
+    padding: 0.75rem 1rem !important;
+    font-size: 1rem !important;
+}
+
+.search-input:focus {
+    box-shadow: none !important;
+    border-color: #007bff !important;
+}
+
+/* Sparkle Button */
+.sparkle-btn {
+    background: linear-gradient(45deg, #007bff, #00bcd4) !important;
+    border: none !important;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+    border-radius: 0 8px 8px 0 !important;
+}
+
+.sparkle-btn::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(
+        45deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        transparent 100%
+    );
+    transform: rotate(45deg);
+    animation: sparkle 2s infinite;
+}
+
+@keyframes sparkle {
+    0% {
+        transform: rotate(45deg) translate(-50%, -50%);
+    }
+    100% {
+        transform: rotate(45deg) translate(50%, 50%);
+    }
+}
+
+.sparkle-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+}
+
+/* Search Result Item */
+.search-result-item {
+    border: none !important;
+    border-bottom: 1px solid #eee !important;
+    padding: 1rem !important;
+    transition: all 0.3s ease !important;
+}
+
+.search-result-item:hover {
+    background-color: #f8f9fa !important;
+    transform: translateX(4px);
+}
+
+.search-result-item:last-child {
+    border-bottom: none !important;
+}
+
+/* Badges */
+.badge {
+    padding: 0.5em 1em !important;
+    font-weight: 500 !important;
+}
+
+/* Custom Select */
+.custom-select {
+    border-radius: 8px !important;
+    border: 1px solid #dee2e6 !important;
+    padding: 0.5rem !important;
+    transition: all 0.3s ease !important;
+}
+
+.custom-select:focus {
+    border-color: #007bff !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.15) !important;
+}
+
+/* Back Button */
+.back-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease !important;
+}
+
+.back-btn:hover {
+    transform: translateX(-5px);
+}

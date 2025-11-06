@@ -1,0 +1,106 @@
+.star-row { display:flex; align-items:center; }
+.star-btn { 
+  background: transparent; 
+  border: none; 
+  font-size: 1.5rem; 
+  color: rgba(255,255,255,0.5); 
+  cursor: pointer; 
+  padding: 0 6px;
+  transition: all 0.3s ease;
+}
+.star-btn.active { 
+  color: #f59e0b; 
+  transform: translateY(-2px);
+  text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+}
+.send-btn { 
+  padding: 0.6rem 1.2rem; 
+  border-radius: 999px;
+  background: linear-gradient(90deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
+  border: none;
+  transition: all 0.3s ease;
+}
+.send-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(59,130,246,0.25);
+}
+
+.feedback-item, .submission-item { 
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.feedback-item:hover, .submission-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.company-name { 
+  display: block; 
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(99,102,241,0.18);
+}
+
+.rating-small { margin-top: 4px; }
+.mini-star { 
+  color: rgba(255,255,255,0.3); 
+  margin-right: 2px;
+  text-shadow: none;
+}
+.mini-star.filled { 
+  color: #f59e0b;
+  text-shadow: 0 0 8px rgba(245, 158, 11, 0.3);
+}
+
+/* Card Styles */
+.card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 15px;
+}
+
+.card-title {
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(99,102,241,0.18);
+}
+
+.card-body {
+  color: rgba(255,255,255,0.9);
+}
+
+/* Form Styles */
+.form-control {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #ffffff;
+}
+
+.form-control:focus {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(99,102,241,0.5);
+  color: #ffffff;
+  box-shadow: 0 0 0 2px rgba(99,102,241,0.25);
+}
+
+.form-control::placeholder {
+  color: rgba(255,255,255,0.5);
+}
+
+.form-label {
+  color: rgba(255,255,255,0.9);
+}
+
+/* Override text-muted to be more visible on dark bg */
+.text-muted {
+  color: rgba(255,255,255,0.6) !important;
+}
+
+/* responsive spacing */
+@media (max-width:768px){
+  .feedback-item, .submission-item { padding: 12px; }
+}

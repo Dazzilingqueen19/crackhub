@@ -1,0 +1,69 @@
+.question-demo {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px);
+    margin: 2rem auto;
+    max-width: 800px;
+    width: 90%;
+}
+
+.question-demo .card-title {
+    color: rgb(7, 7, 7);
+    margin-bottom: 1.5rem;
+}
+
+.question-demo textarea {
+    background: #ffffff !important;   /* solid white background */
+    color: #000000 !important;        /* pure black text */
+    border: 1px solid #ccc !important;
+    resize: none;
+    font-size: 1rem;
+    padding: 0.75rem;
+}
+
+
+.question-demo textarea:focus {
+    background: #ffffff !important; 
+    color: #000000 !important;
+    border-color: #4facfe !important;
+    box-shadow: 0 0 0 0.25rem rgba(79, 172, 254, 0.25);
+    outline: none;
+}
+.question-demo textarea:focus {
+    background: #ffffff !important; 
+    color: #000000 !important;
+    border-color: #4facfe !important;
+    box-shadow: 0 0 0 0.25rem rgba(79, 172, 254, 0.25);
+    outline: none;
+}
+.close-button {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.5rem;
+    line-height: 1;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    border-radius: 4px;
+}
+
+.close-button:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.close-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(79, 172, 254, 0.25);
+}
+/* === Fix for visible text color in textarea === */
+
+/* Change text color on focus for clarity */
+.question-demo textarea:focus {
+    background: #ffffff !important; 
+    color: #000000 !important;
+    border-color: #4facfe !important;
+    box-shadow: 0 0 0 0.25rem rgba(79, 172, 254, 0.25);
+    outline: none;
+}

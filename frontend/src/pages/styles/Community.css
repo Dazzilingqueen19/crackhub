@@ -1,0 +1,271 @@
+/* Community Page Styles */
+
+/* Dashboard Navigation */
+.dashboard-nav {
+    background: linear-gradient(135deg, #1a1c2d 0%, #2d2b42 100%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.nav-link-btn {
+    transition: all 0.3s ease !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+
+.nav-link-btn:hover::after {
+    opacity: 1;
+    transform: rotate(45deg) translate(50%, 50%);
+}
+
+/* Ensure nav text is visible on dark nav backgrounds */
+.dashboard-nav, .dashboard-nav a, .dashboard-nav .nav-link-btn {
+    color: var(--text-light) !important;
+}
+
+/* Sparkle Button */
+.sparkle-btn {
+    background: linear-gradient(45deg, #007bff, #00bcd4) !important;
+    border: none !important;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+}
+
+.sparkle-btn::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(
+        45deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        transparent 100%
+    );
+    transform: rotate(45deg);
+    animation: sparkle 2s infinite;
+}
+
+@keyframes sparkle {
+    0% {
+        transform: rotate(45deg) translate(-50%, -50%);
+    }
+    100% {
+        transform: rotate(45deg) translate(50%, 50%);
+    }
+}
+
+.sparkle-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+}
+
+/* Back Button */
+.back-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease !important;
+}
+
+.back-btn:hover {
+    transform: translateX(-5px);
+}
+
+/* Discussion Card */
+.discussion-card {
+    border: none !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    margin-bottom: 1rem !important;
+}
+
+.discussion-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Author Section */
+.discussion-card img {
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Tags */
+.badge {
+    font-weight: 500 !important;
+    padding: 0.4em 0.8em !important;
+    margin-right: 0.5rem !important;
+}
+
+/* Interaction Buttons */
+.btn-outline-primary, .btn-outline-secondary {
+    border-radius: 20px !important;
+    padding: 0.3rem 0.8rem !important;
+    font-size: 0.9rem !important;
+    transition: all 0.2s ease !important;
+}
+
+.btn-outline-primary:hover {
+    transform: scale(1.05);
+}
+
+/* Reply Section */
+.replies-section {
+    margin-top: 1rem;
+    padding-left: 1rem;
+    border-left: 2px solid #e9ecef;
+}
+
+.reply-card {
+    transition: background-color 0.2s ease;
+}
+
+.reply-card:hover {
+    background-color: #f8f9fa !important;
+}
+
+/* Search Bar */
+.form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.15) !important;
+    border-color: #80bdff !important;
+}
+
+/* Top Contributors Card */
+.shadow-sm {
+    transition: box-shadow 0.2s ease !important;
+}
+
+.shadow-sm:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Trending Tags */
+.btn-outline-primary {
+    margin: 0.2rem !important;
+    white-space: nowrap;
+    font-size: 0.85rem !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .discussion-card {
+        padding: 1rem !important;
+    }
+
+    .replies-section {
+        padding-left: 0.5rem;
+    }
+
+    .badge {
+        font-size: 0.7rem !important;
+    }
+}
+
+/* Animation for New Content */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.discussion-card {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Ensure page-level backgrounds and text are readable */
+.community-page {
+    /* use the project's light background for the page */
+    background: var(--bg-light) !important;
+    color: var(--text-primary) !important;
+}
+
+.community-page h1,
+.community-page h2,
+.community-page h3,
+.community-page h4,
+.community-page h5,
+.community-page h6 {
+    color: var(--text-primary) !important;
+}
+
+/* Force form controls and cards to have white backgrounds and dark text */
+.community-page .form-control,
+.community-page .filter-sidebar,
+.community-page .shadow-sm,
+.community-page .discussion-card,
+.community-page .reply-card,
+.community-page .ListGroup-Item,
+.community-page .card,
+.community-page .list-group-item {
+    background: #ffffff !important;
+    color: var(--text-primary) !important;
+}
+
+.community-page .text-muted {
+    color: var(--text-muted) !important;
+}
+
+/* Loading State Styles */
+.loading-skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    from {
+        background-position: 200% 0;
+    }
+    to {
+        background-position: -200% 0;
+    }
+}
+
+/* Strong overrides to ensure text is visible (force black) */
+.community-page, .community-page h1, .community-page h2, .community-page h3, .community-page h4, .community-page h5, .community-page h6,
+.community-page p, .community-page small, .community-page .text-muted, .community-page .badge,
+.community-page .list-group-item, .community-page .discussion-card, .community-page .reply-card,
+.community-page .card, .community-page .card-body, .community-page .form-control, .community-page .btn,
+.community-page .list-group-item .mb-0 {
+    color: #000000 !important;
+}
+
+.community-page .form-control::placeholder { color: #6b7280 !important; }
+
+/* Specific override for badges and muted text to ensure contrast */
+.community-page .badge {
+    color: #000000 !important;
+    background-color: #e9ecef !important;
+}
+
+.community-page .text-muted {
+    color: #6b7280 !important;
+}

@@ -1,0 +1,112 @@
+/* Attractive company questions page styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Poppins:wght@600;700&display=swap');
+
+:root{
+  --cq-bg-1: #f7fbff;
+  --cq-bg-2: #eef6ff;
+  --cq-accent: #06b6d4; /* cyan */
+  --cq-text: #0b1220;
+  --cq-muted: #64748b;
+}
+
+.company-questions-container{
+  position: relative;
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  color: var(--cq-text);
+  background: linear-gradient(180deg, var(--cq-bg-1) 0%, var(--cq-bg-2) 100%);
+  overflow: hidden;
+}
+
+/* Soft animated gradient layer */
+.company-questions-container::before{
+  content: '';
+  position: absolute;
+  inset: -20% -10% -20% -10%;
+  background: radial-gradient(circle at 10% 10%, rgba(6,182,212,0.06), transparent 15%),
+              radial-gradient(circle at 90% 80%, rgba(79,172,254,0.06), transparent 20%);
+  filter: blur(40px) saturate(1.05);
+  z-index: 0;
+  pointer-events: none;
+  animation: bgFloat 12s linear infinite;
+}
+
+@keyframes bgFloat{
+  0%{ transform: translateY(0px) }
+  50%{ transform: translateY(-12px) }
+  100%{ transform: translateY(0px) }
+}
+
+/* page content sits above the animated layer */
+.company-questions-container > .container { position: relative; z-index: 2; }
+
+/* Heading styles */
+.company-questions-container h2{
+  font-family: 'Poppins', 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 1.9rem;
+  color: var(--cq-text);
+  margin-bottom: 0.75rem;
+}
+.company-questions-container h4{ color: var(--cq-text); }
+
+/* Card styles */
+.company-questions-container .card{
+  background: #ffffff;
+  border: none;
+  border-radius: 14px;
+  padding: 0;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 10px 30px rgba(15,23,42,0.06);
+  overflow: hidden;
+}
+
+.company-questions-container .card .card-body{
+  padding: 1.25rem 1.5rem;
+}
+
+.company-questions-container .card .card-body .badge{
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(59,130,246,0.06);
+}
+
+.company-questions-container .card:hover{
+  transform: translateY(-6px);
+  transition: transform 220ms ease;
+}
+
+.company-questions-container .card .card-body p{
+  margin: 0.35rem 0 0;
+  color: var(--cq-text);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.company-questions-container .card strong{ color: var(--cq-text); }
+
+/* feedback area */
+.company-questions-container .form-control{
+  border-radius: 10px;
+  border: 1px solid rgba(15,23,42,0.06);
+  color: var(--cq-text);
+  background: #fff;
+}
+
+/* responsive tweaks */
+@media (max-width: 768px){
+  .company-questions-container h2{ font-size: 1.5rem; }
+  .company-questions-container .card .card-body{ padding: 1rem; }
+}
+
+/* small accent bar on left of card for visual interest */
+.company-questions-container .card::before{
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: linear-gradient(180deg, var(--cq-accent), #8b5cf6);
+}
+
